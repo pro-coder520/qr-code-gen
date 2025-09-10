@@ -2,7 +2,7 @@
 "rewrites": [
 {
 "source": "/(.)",
-"destination": "my-qr-code-gen",
+"destination": "my-qr-code-gen.html",
 }
 ]
 }
