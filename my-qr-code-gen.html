@@ -2,7 +2,7 @@
 <html lang="en-us">
     <head>
         <meta charset="UTF-8">
-        <meta content="width=device-width" name="viewport">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <title>QR Code Generator</title>
         <style>
             * {
@@ -116,13 +116,15 @@
 
             .code-location {
                 margin-top: 20px;
+                min-height: 200px;
                 display: flex;
                 padding: 25px 50px;
                 border: 2px dashed rgba(140, 200, 217, 0.643);
-                height: 200px;
                 border-radius: 20px;
                 align-items:center;
                 justify-content: center;
+                flex-direction:column;
+                transition:all 0.3s ease;
             }
             
             .loading-text {
@@ -167,6 +169,7 @@
                 transition:all 0.3s ease;
                 opacity:0;
                 transform:translateY(10px);
+                font-weight:bold;
             }
 
             .download-btn.show {
@@ -259,7 +262,7 @@
 
                         //Shows the loading state
                         qrCodeBtn.disabled = true;
-                        qrCodeBtn.textContent = 'Generating code...';
+                        qrCodeBtn.innerHTML = '<b>Generating code...</b>';
                         codeLocation.innerHTML = '<div class="loading-text"><div class="spinner"></div>Generating your code</div>'
 
                         //Link to QR code API
@@ -280,7 +283,7 @@
                             const downloadBtn = document.createElement('button');
                             downloadBtn.textContent = 'Download QR Code';
                             downloadBtn.className = 'download-btn';
-                            downloadBtn.onclick = downloadQR();
+                            downloadBtn.onclick = downloadQR;
 
                             codeLocation.appendChild(qrCode);
                             codeLocation.appendChild(downloadBtn);
@@ -292,13 +295,13 @@
 
                             //Reset button
                             qrCodeBtn.disabled = false;
-                            qrCodeBtn.textContent = 'Generate QR Code'; 
+                            qrCodeBtn.innerHTML = '<b>Generate QR Code</b>'; 
                         };
 
                         img.onerror = function() {
                             codeLocation.innerHTML = '<div style="color: red;">An error occurred. Please try again.</div>';
                             qrCodeBtn.disabled = false;
-                            qrCodeBtn.textContent = 'Generate QR Code';
+                            qrCodeBtn.innerHTML = '<b>Generate QR Code</b>';
                         };
 
                         img.src = apiUrl;
@@ -310,9 +313,9 @@
                         if (currentQrData) {
                             const link = document.createElement('a');
                             link.href = currentQrData;
-                            link.download = `qr-code-${text}-${Date.now()}.png`;
+                            link.download = `qr-code-${text.replace(/[^a-z0-9]/gi, '_')}-${Date.now()}.png`;
                             document.body.appendChild(link);
-                            link.click;
+                            link.click();
                             document.body.removeChild(link);
                         }
                     }
@@ -326,7 +329,7 @@
                         }
                     });
 
-                    textField.addeventListener('input', function() {
+                    textField.addEventListener('input', function() {
                         //Clear QR display when text changes
                         if (codeLocation.querySelector('.qr-code')) {
                             codeLocation.innerHTML = '<div class="placeholder">Your generated QR code will appear here.</div>';
