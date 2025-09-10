@@ -50,6 +50,17 @@
                 font-size: 20px;
             }
 
+            .controls {
+                display: flex;
+                align-items: flex-end;
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+
+            .size-control {
+                flex: 1;
+            }
+
             .qr-code-btn {
                 border-radius:10px;
                 flex:2;
@@ -59,12 +70,18 @@
                 color:white;
                 font-size: 20px;
                 transition: transform 0.4s ease, box-shadow 0.4s ease;
+                cursor: pointer;
             }
 
             .qr-code-btn:hover {
-                cursor:pointer;
                 box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
                 transform: translateY(-3px);
+            }
+
+            .qr-code-btn:disabled {
+                opacity: 0.7;
+                cursor: not-allowed;
+                transform: none;
             }
 
             .input-label {
@@ -72,16 +89,17 @@
                 text-align: left;
                 font-weight: 700;
                 display:block;
+                margin-bottom: 10px;
             }
 
             .text-field {
-                margin-top: 10px;
                 background: whitesmoke;
                 padding: 15px 30px;
                 width:100%;
                 border-radius: 10px;
                 border:2px solid rgba(140, 200, 217, 0.643);
                 transition: all 0.4s ease;
+                margin-bottom: 20px;
             }
 
             .text-field:focus {
@@ -93,13 +111,12 @@
 
             .select-size {
                 background: whitesmoke;
-                flex:1;
-                padding: 10px 30px;
+                padding: 10px 20px;
                 border-radius: 10px;
-                font-size: 20px;
+                font-size: 16px;
                 border:2px solid rgba(140, 200, 217, 0.643);
                 transition: all 0.4s ease;
-                margin-right: 20px;
+                width: 100%;
             }
 
             .select-size:focus {
@@ -169,7 +186,6 @@
                 transition:all 0.3s ease;
                 opacity:0;
                 transform:translateY(10px);
-                font-weight:bold;
             }
 
             .download-btn.show {
@@ -182,33 +198,35 @@
                 transform:translateY(-2px);
             }
 
+            .size-select-label {
+                color:grey;
+                font-weight:700;
+                display:block;
+                margin-bottom: 10px;
+            }
+
             @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
             }
 
             @media (max-width: 480px) {
-            .qr-container {
-                padding: 25px;
-            }
-            
-            .title {
-                font-size: 2rem;
-            }
-            
-            .controls {
-                flex-direction: column;
-            }
+                .qr-container {
+                    padding: 25px;
+                }
+                
+                .title {
+                    font-size: 2rem;
+                }
+                
+                .controls {
+                    flex-direction: column;
+                    align-items: stretch;
+                }
 
-            }
-
-            .size-select-label {
-                display:block;
-                margin-right:290px;
-                color:grey;
-                font-weight:700;
-                align-items:left;
-                justify-content:left;
+                .qr-code-btn {
+                    margin-top: 15px;
+                }
             }
         </style>
     </head>
@@ -219,21 +237,22 @@
                 <br>
 
                 <div>
-
                     <label class="input-label" for="textField">Enter URL below:</label>
                     <input type="text" id="textField" class="text-field" placeholder="Enter any URL e.g. https://example.com">
-                </div><br>
+                </div>
 
                 <div class="controls">
-                    <label for="selectSize" class="size-select-label">Select code size:</label>
-                    <select class="select-size" id="selectSize">
-                        <option value="150">150x150</option>
-                        <option value="200" selected>200x200</option>
-                        <option value="250">250x250</option>
-                        <option value="300">300x300</option>
-                        <option value="350">350x350</option>
-                        <option value="400">400x400</option>
-                    </select>
+                    <div class="size-control">
+                        <label for="selectSize" class="size-select-label">Select code size:</label>
+                        <select class="select-size" id="selectSize">
+                            <option value="150">150x150</option>
+                            <option value="200" selected>200x200</option>
+                            <option value="250">250x250</option>
+                            <option value="300">300x300</option>
+                            <option value="350">350x350</option>
+                            <option value="400">400x400</option>
+                        </select>
+                    </div>
                     <button class="qr-code-btn" id="qrCodeBtn"><b>Generate QR Code</b></button>
                 </div>
 
