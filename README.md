@@ -12,9 +12,9 @@ Styling
 
 Project Structure: 
 
--  qr-code-gen/ -
-    ├── my-qr-code-gen.html          
-    ├── vercel.json         
+-  qr-code-gen/
+    - ├── my-qr-code-gen.html          
+    - ├── vercel.json         
 
 
 Installation
