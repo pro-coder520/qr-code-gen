@@ -1,4 +1,3 @@
-QR Code Generator
 A modern, responsive QR code generator web application that allows users to create QR codes for their sites.
 
 Tech Stack
@@ -10,6 +9,7 @@ Styling
   - Custom CSS with modern design principles
 
 Project Structure: 
+
   qr-code-gen/
   ├── my-qr-code-gen.html          
   ├── vercel.json         
@@ -22,14 +22,14 @@ Installation
     cd qr-code-gen
     
   - Open my-qr-code-gen.html in your web browser or serve it using a local server:
-      Using Python:
-      python -m http.server 8000
+      - Using Python:
+        python -m http.server 8000
     
-      Using Node.js:
-      npx http-server
+      - Using Node.js:
+        npx http-server
     
-      Using PHP:
-      php -S localhost:8000
+      - Using PHP:
+        php -S localhost:8000
     
 Usage
   - Enter Content: Type your text or URL in the input field
@@ -43,8 +43,6 @@ Browser Compatibility
   - Edge
   - Mobile browsers
 
-
-Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
   - Fork the project
   - Create your feature branch (git checkout -b main)
@@ -53,4 +51,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
   - Open a Pull Request
 
 License
-This project is open source and available under the MIT License.
+- This project is open source and available under the MIT License.
