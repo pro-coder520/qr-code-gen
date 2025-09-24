@@ -5,14 +5,17 @@ Tech Stack
   - CSS3
   - JavaScript (ES6+)
 
+
 Styling 
   - Custom CSS with modern design principles
+
 
 Project Structure: 
 
   qr-code-gen/
-  ├── my-qr-code-gen.html          
-  ├── vercel.json         
+    ├── my-qr-code-gen.html          
+    ├── vercel.json         
+
 
 Installation
   - Clone the repository:
@@ -30,11 +33,13 @@ Installation
     
       - Using PHP:
         php -S localhost:8000
+
     
 Usage
   - Enter Content: Type your text or URL in the input field
   - Generate: Click the "Generate QR Code" button
   - Download: Hit the download button (it's in PNG format)
+
 
 Browser Compatibility
   - Chrome (recommended)
@@ -43,12 +48,14 @@ Browser Compatibility
   - Edge
   - Mobile browsers
 
+
 Contributions are welcome! Please feel free to submit a Pull Request.
   - Fork the project
   - Create your feature branch (git checkout -b main)
   - Commit your changes (git commit -m 'Add some AmazingFeature')
   - Push to the branch (git push origin main)
   - Open a Pull Request
+
 
 License
 - This project is open source and available under the MIT License.
