@@ -55,7 +55,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
   - Commit your changes (git commit -m 'Add some AmazingFeature')
   - Push to the branch (git push origin main)
   - Open a Pull Request
-
-
-License
-- This project is open source and available under the MIT License.
